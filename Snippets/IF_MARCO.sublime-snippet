@@ -1,0 +1,15 @@
+<snippet>
+	<tabTrigger>IF_MARCO</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>[IF]-[ELSE]-[ENDIF]</description>
+
+	<content><![CDATA[
+[IF ${1}]
+	${0}
+[ELSEIF ]
+	
+[ELSE]
+	
+[ENDIF]
+]]></content>
+</snippet>

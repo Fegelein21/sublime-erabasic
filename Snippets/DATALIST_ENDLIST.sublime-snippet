@@ -1,0 +1,12 @@
+<snippet>
+	<tabTrigger>DATALIST_ENDLIST</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>DATALIST-DATA-ENDLIST</description>
+
+	<content><![CDATA[
+DATALIST
+	DATA ${0}
+	DATAFORM 
+ENDLIST
+]]></content>
+</snippet>

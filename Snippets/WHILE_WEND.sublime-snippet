@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>WHILE_WEND</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>WHILE-WEND</description>
+
+	<content><![CDATA[
+WHILE ${1}
+	${0}
+WEND
+]]></content>
+</snippet>

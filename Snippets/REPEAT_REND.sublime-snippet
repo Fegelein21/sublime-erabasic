@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>REPEAT_REND</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>REPEAT-REND</description>
+
+	<content><![CDATA[
+REPEAT ${1}
+	${0}
+REND
+]]></content>
+</snippet>

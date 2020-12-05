@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>SKIPSTART_SKIPEND</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>[SKIPSTART]-[SKIPEND]</description>
+
+	<content><![CDATA[
+[SKIPSTART]
+	${0}
+[SKIPEND]
+]]></content>
+</snippet>

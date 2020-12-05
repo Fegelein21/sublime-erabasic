@@ -1,0 +1,12 @@
+<snippet>
+	<tabTrigger>PRINTDATA_ENDDATA</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>PRINTDATA-DATA-ENDDATA</description>
+
+	<content><![CDATA[
+PRINTDATA
+	DATA ${0}
+	DATAFORM 
+ENDDATA
+]]></content>
+</snippet>

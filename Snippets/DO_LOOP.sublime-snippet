@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>DO_LOOP</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>DO-LOOP</description>
+
+	<content><![CDATA[
+DO
+	${0}
+LOOP ${1}
+]]></content>
+</snippet>

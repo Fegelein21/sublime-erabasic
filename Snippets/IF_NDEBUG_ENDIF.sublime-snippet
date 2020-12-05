@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>IF_NDEBUG_ENDIF</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>[IF_NDEBUG]-[ENDIF]</description>
+
+	<content><![CDATA[
+[IF_NDEBUG]
+	${0}
+[ENDIF]
+]]></content>
+</snippet>

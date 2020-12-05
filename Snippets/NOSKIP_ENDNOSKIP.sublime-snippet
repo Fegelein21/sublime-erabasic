@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>NOSKIP_ENDNOSKIP</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>NOSKIP-ENDNOSKIP</description>
+
+	<content><![CDATA[
+NOSKIP
+	${0}
+ENDNOSKIP
+]]></content>
+</snippet>

@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>TRYJUMPLIST_ENDFUNC</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>TRYJUMPLIST-FUNC-ENDFUNC</description>
+
+	<content><![CDATA[
+TRYJUMPLIST
+	FUNC ${0}
+ENDFUNC
+]]></content>
+</snippet>

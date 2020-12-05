@@ -1,0 +1,14 @@
+<snippet>
+	<tabTrigger>SELECTCASE_ENDSELECT</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>SELECTCASE-CASE-CASEELSE-ENDSELECT</description>
+
+	<content><![CDATA[
+SELECTCASE ${1}
+CASE ${0}
+	
+CASEELSE
+	
+ENDSELECT
+]]></content>
+</snippet>

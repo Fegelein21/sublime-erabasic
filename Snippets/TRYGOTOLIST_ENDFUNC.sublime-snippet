@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>TRYGOTOLIST_ENDFUNC</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>TRYGOTOLIST-FUNC-ENDFUNC</description>
+
+	<content><![CDATA[
+TRYGOTOLIST
+	FUNC ${0}
+ENDFUNC
+]]></content>
+</snippet>

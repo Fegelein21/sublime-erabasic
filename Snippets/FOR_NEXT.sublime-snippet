@@ -1,0 +1,11 @@
+<snippet>
+	<tabTrigger>FOR_NEXT</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>FOR-NEXT</description>
+
+	<content><![CDATA[
+FOR ${1}, ${2}, ${3}
+	${0}
+NEXT
+]]></content>
+</snippet>

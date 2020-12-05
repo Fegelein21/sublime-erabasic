@@ -1,0 +1,13 @@
+<snippet>
+	<tabTrigger>IF_ELSE</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>IF-ELSE-ENDIF</description>
+
+	<content><![CDATA[
+IF ${1}
+	${0}
+ELSE
+	
+ENDIF
+]]></content>
+</snippet>
