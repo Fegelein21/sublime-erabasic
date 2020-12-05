@@ -1,0 +1,19 @@
+{
+	"auto_complete": true,
+	"auto_complete_triggers":
+	[
+		{
+			"selector": "erabasic",
+			// 1234567890
+			"characters": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+		}
+	],
+	"auto_match_enabled": true,
+	"tab_completion": false,
+	"extensions":
+	[
+		"ERB",
+		"ERH"
+	],
+	"file_exclude_patterns": [".tags", ".tags_sorted_by_file", ".gemtags"]
+}

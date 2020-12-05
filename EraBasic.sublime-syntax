@@ -1,0 +1,522 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+
+name: EraBasic
+
+file_extensions:
+  - erb
+  - erh
+
+scope: source.erabasic
+
+variables:
+
+  # digit separators
+  digit_separators: '(?:(?:_+[0-9]+)*)'
+
+  # integers
+  hex_numeral: '(0[xX])_*\h+(?:_+\h+)*'
+  binary_numeral: '(0[bB])_*[01]+(?:_+[01]+)*'
+  decimal_numeral: '(0|[1-9][0-9]*{{digit_separators}})((?i:ul|lu|u|l)?)'
+
+  # floating point numbers
+  exponent: '[eE][+\-]?[0-9]+{{digit_separators}}'
+  floating_point: '([0-9]+{{digit_separators}}(?={{floating_point_suffix}}|[.Ee])(?:\.[0-9]+{{digit_separators}})?(?:{{exponent}})?)({{floating_point_suffix}}?)'
+  floating_point_suffix: '[fFdDmM]'
+
+  # characters
+  unicode_char: '(?:\\u\h{4}|\\U\h{8})'
+  escaped_char: '(?:\\[abfnrtv"''\\]|{{unicode_char}}|\\x[0-9a-fA-F]{1,4}|\\[0-9]{1,3})'
+
+  start_char: '(?:{{unicode_char}}|[_\p{L}])'
+  other_char: '(?:{{unicode_char}}|[_0-9\p{L}])'
+  name_normal: '\b(?:{{start_char}}{{other_char}}*)\b'
+
+# ---------------------------------------------
+# 常量, 变量
+
+  kw_const: '\b(?:CENTER|LEFT|RIGHT)\b'
+
+  kw___var__: '(?:__(?:FILE|FUNCTION|INT_MAX|INT_MIN|LINE)__)'
+  kw_BASE: '(?:(?:DOWN|LOSE|MAX)?BASE(?:NAME)?)'
+  kw_CDFLAG: '(?:CDFLAG(?:NAME1|NAME2)?)'
+  kw_EXP: '(?:EXP(?:LV|NAME)?)'
+  kw_GAMEBASE: '(?:GAMEBASE_(?:ALLOWVERSION|AUTHOR|DEFAULTCHARA|GAMECODE|INFO|NOITEM|TITLE|VERSION|YEAR))'
+  kw_GLOBAL: '(?:GLOBAL(?:S)?(?:NAME)?)'
+  kw_PALAM: '(?:PALAM(?:LV|NAME)?)'
+
+  kw_local_var: '(?:LOCAL(?:S)?|ARG(?:S)?)'
+
+  kw_global_var: '(?:{{kw___var__}}|{{kw_BASE}}|{{kw_CDFLAG}}|{{kw_EXP}}|{{kw_GAMEBASE}}|{{kw_GLOBAL}}|{{kw_PALAM}}|ABL|ABLNAME|ASSI|ASSIPLAY|BOUGHT|CALLNAME|CDOWN|CFLAG|CFLAGNAME|CHARANUM|COUNT|CSTR|CSTRNAME|CUP|DA|DAY|DB|DC|DD|DE|DITEMTYPE|DOWN|DRAWLINESTR|EJAC|EQUIP|EQUIPNAME|EX|EXNAME|FLAG|FLAGNAME|GOTJUEL|ISASSI|ISTIMEOUT|ITEM|ITEMNAME|ITEMPRICE|ITEMSALES|JUEL|JUELNAME|LASTLOAD_NO|LASTLOAD_TEXT|LASTLOAD_VERSION|LINECOUNT|MARK|MARKNAME|MASTER|MASTERNAME|MONEY|MONEYLABEL|NAME|NEXTCOM|NICKNAME|NO|NOITEM|NOWEX|PBAND|PLAYER|PREVCOM|RAND|RANDDATA|RELATION|RESULT|RESULTS|SAVEDATA_TEXT|SAVESTR|SAVESTRNAME|SELECTCOM|SOURCE|SOURCENAME|STAIN|STAINNAME|STR|STRNAME|TA|TALENT|TALENTNAME|TARGET|TB|TCVAR|TCVARNAME|TEQUIP|TEQUIPNAME|TFLAG|TFLAGNAME|TIME|TRAINNAME|TSTR|TSTRNAME|UP|WINDOW_TITLE)'
+
+# ---------------------------------------------
+# 声明
+
+  kw_DIM: '(?:DIM(?:S)?)'
+  kw_FUNCTION: '(?:FUNCTION(?:S)?)'
+  kw_LOCALSIZE: '(?:LOCAL(?:S)?SIZE)'
+
+  kw_declare: '(?:{{kw_FUNCTION}}|{{kw_LOCALSIZE}}|ONLY|SINGLE|PRI|LATER)'
+  kw_declare_type: '(?:{{kw_DIM}}|DEFINE)'
+  kw_declare_type_DIM: '(?:CHARADATA|CONST|DYNAMIC|GLOBAL|REF|SAVEDATA|STATIC)'
+
+# ---------------------------------------------
+# 控制语句
+
+  kw_DATA: 'DATA'
+  kw_DATAFORM: 'DATAFORM'
+  kw_END: '(?:END(?:CATCH|DATA|FUNC|IF|LIST|NOSKIP|SELECT))'
+  kw_IF: '(?:IF(?:_DEBUG|_NDEBUG)?)'
+
+  kw_CALL: 'CALL'
+  kw_CALLF: 'CALLF'
+  kw_JUMP: 'JUMP'
+  kw_GOTO: 'GOTO'
+
+  kw_CALLFORM: 'CALLFORM'
+  kw_CALLFORMF: 'CALLFORMF'
+  kw_JUMPFORM: 'JUMPFORM'
+  kw_GOTOFORM: 'GOTOFORM'
+
+  kw_C_J_G_PLAIN: '(?:{{kw_CALL}}|{{kw_JUMP}}|{{kw_GOTO}})'
+  kw_CF_J_G_PLAIN: '(?:{{kw_CALL}}|{{kw_CALLF}}|{{kw_JUMP}}|{{kw_GOTO}})'
+
+  kw_C_J_G_FORM: '(?:{{kw_CALLFORM}}|{{kw_JUMPFORM}}|{{kw_GOTOFORM}})'
+  kw_CF_J_G_FORM: '(?:{{kw_CALLFORM}}|{{kw_CALLFORMF}}|{{kw_JUMPFORM}}|{{kw_GOTOFORM}})'
+
+  kw_TRYC_PLAIN: '(?:TRYC{{kw_C_J_G_PLAIN}})'
+  kw_TRYC_FORM: '(?:TRYC{{kw_C_J_G_FORM}})'
+
+  kw_TRY_LIST: '(?:TRY{{kw_C_J_G_PLAIN}}LIST)'
+
+  kw_PRINTDATA: '(?:PRINTDATA(?:K|D)?(?:L|W)?)'
+
+  kw_control: '(?:{{kw_END}}|{{kw_IF}}|{{kw_PRINTDATA}}|{{kw_TRY_LIST}}|CASE|CASEELSE|CATCH|DATALIST|DO|ELSE|ELSEIF|FOR|FUNC|LOOP|NEXT|NOSKIP|REND|REPEAT|SELECTCASE|SIF|SKIPEND|SKIPSTART|STRDATA|WEND|WHILE)'
+
+# ---------------------------------------------
+# 方法
+
+  kw_CSV: '(?:CSV(?:ABL|BASE|CALLNAME|CFLAG|CSTR|EQUIP|EXP|JUEL|MARK|MASTERNAME|NAME|NICKNAME|RELATION|TALENT))'
+
+  kw_DEBUGPRINT: '(?:DEBUGPRINT(?:L)?)'
+  kw_DEBUGPRINTFORM: '(?:DEBUGPRINTFORM(?:L)?)'
+
+  kw_TRY_PLAIN: '(?:TRY{{kw_C_J_G_PLAIN}})'
+  kw_TRY_FORM: '(?:TRY{{kw_C_J_G_FORM}})'
+
+  kw_PRINT: '(?:PRINT(?:K|D)?(?:L|W)?)'
+  kw_PRINTV: '(?:PRINTV(?:K|D)?(?:L|W)?)'
+  kw_PRINTS: '(?:PRINTS(?:K|D)?(?:L|W)?)'
+  kw_PRINTFORM: '(?:PRINT(?:FORM|FORMS)(?:K|D)?(?:L|W)?)'
+
+  kw_PRINTC: '(?:PRINT(?:C|LC)(?:K|D)?)'
+  kw_PRINTFORMC: '(?:PRINTFORM(?:C|LC)(?:K|D)?)'
+
+  kw_PRINTPLAIN: '(?:PRINTPLAIN)'
+  kw_PRINTPLAINFORM: '(?:PRINTPLAINFORM)'
+
+  kw_PRINTSINGLE: '(?:PRINTSINGLE(?:K|D)?)'
+  kw_PRINTSINGLEV: '(?:PRINTSINGLEV(?:K|D)?)'
+  kw_PRINTSINGLES: '(?:PRINTSINGLES(?:K|D)?)'
+  kw_PRINTSINGLEFORM: '(?:PRINTSINGLE(?:FORM|FORMS)(?:K|D)?)'
+
+  kw_PRINT_PLAIN: '(?:{{kw_PRINT}}|{{kw_PRINTC}}|{{kw_PRINTPLAIN}}|{{kw_PRINTSINGLE}})'
+  kw_PRINT_V: '(?:{{kw_PRINTV}}|{{kw_PRINTSINGLEV}})'
+  kw_PRINT_S: '(?:{{kw_PRINTS}}|{{kw_PRINTSINGLES}})'
+  kw_PRINT_FORM: '(?:{{kw_PRINTFORM}}|{{kw_PRINTFORMC}}|{{kw_PRINTPLAINFORM}}|{{kw_PRINTSINGLEFORM}})'
+
+  kw_PRINTBUTTON: '(?:PRINTBUTTON(?:C|LC)?)'
+
+  kw_STRFIND: '(?:STRFIND(?:U)?)'
+
+  kw_STRLEN_PLAIN: '(?:STRLEN(?:U)?)'
+  kw_STRLENS: '(?:STRLENS(?:U)?)'
+  kw_STRLENFORM: '(?:STRLENFORM(?:U)?)'
+
+  kw_SUBSTRING: '(?:SUBSTRING(?:U)?)'
+
+  kw_SETCOLORBYNAME: '(?:SET(?:BG)?COLORBYNAME)'
+
+  kw_func_CALL_PLAIN: '(?:{{kw_CF_J_G_PLAIN}}|{{kw_TRY_PLAIN}})'
+  kw_func_CALL_FORM: '(?:{{kw_CF_J_G_FORM}}|{{kw_TRY_FORM}})'
+
+  kw_func_plain: '(?:{{kw_DEBUGPRINT}}|{{kw_PRINT_PLAIN}}|{{kw_SETCOLORBYNAME}}|{{kw_STRLEN_PLAIN}}|CUSTOMDRAWLINE)'
+  kw_func_v: '(?:{{kw_PRINT_V}})'
+  kw_func_s: '(?:{{kw_PRINT_S}}|{{kw_STRLENS}})'
+  kw_func_form: '(?:{{kw_DEBUGPRINTFORM}}|{{kw_PRINT_FORM}}|{{kw_STRLENFORM}}|DRAWLINEFORM|ENCODETOUNI|REUSELASTLINE|THROW)'
+
+  kw_RETURN_PLAIN: '(?:RETURN(?:F)?)'
+  kw_RETURN_FORM: '(?:RETURNFORM(?:F)?)'
+  kw_command: '(?:{{kw_RETURN_PLAIN}}|RESTART|BEGIN|CONTINUE|BREAK)'
+
+  kw_function: '(?:{{kw_command}}|{{kw_CSV}}|{{kw_PRINTBUTTON}}|{{kw_STRFIND}}|{{kw_SUBSTRING}}|{{kw_TRY_PLAIN}}|ABS|ADDCHARA|ADDCOPYCHARA|ADDDEFCHARA|ADDVOIDCHARA|ALIGNMENT|ALLSAMES|ARRAYCOPY|ARRAYMSORT|ARRAYREMOVE|ARRAYSHIFT|ARRAYSORT|ASSERT|AWAIT|BARSTR|BEGIN|CALLEVENT|CALLTRAIN|CBGCLEAR|CBGCLEARBUTTON|CBGREMOVEBMAP|CBGREMOVERANGE|CBGSETBMAPG|CBGSETBUTTONSPRITE|CBGSETG|CBGSETSPRITE|CBRT|CHARATU|CHKCHARADATA|CHKDATA|CHKFONT|CLEARBIT|CLEARLINE|CLEARTEXTBOX|CLIENTHEIGHT|CLIENTWIDTH|CMATCH|COLOR_FROMNAME|COLOR_FROMRGB|CONVERT|COPYCHARA|CUPCHECK|CURRENTALIGN|CURRENTREDRAW|CVARSET|DEBUGCLEAR|DELALLCHARA|DELCHARA|DELDATA|DOTRAIN|DRAWLINE|DUMPRAND|ESCAPE|EXISTCSV|EXPONENT|FIND_CHARADATA|FINDCHARA|FINDELEMENT|FINDLASTCHARA|FINDLASTELEMENT|FONTBOLD|FONTITALIC|FONTREGULAR|FONTSTYLE|FORCEKANA|FORCEWAIT|GCLEAR|GCREATE|GCREATED|GCREATEFROMFILE|GDISPOSE|GDRAWG|GDRAWGWITHMASK|GDRAWSPRITE|GETBGCOLOR|GETBIT|GETCHARA|GETCOLOR|GETCONFIG|GETCONFIGS|GETDEFBGCOLOR|GETDEFCOLOR|GETEXPLV|GETFOCUSCOLOR|GETFONT|GETKEY|GETKEYTRIGGERED|GETLINESTR|GETMILLISECOND|GETNUM|GETPALAMLV|GETSECOND|GETSPCHARA|GETSTYLE|GETTIME|GETTIMES|GFILLRECTANGLE|GGETCOLOR|GHEIGHT|GLOAD|GROUPMATCH|GSAVE|GSETBRUSH|GSETCOLOR|GSETFONT|GSETPEN|GWIDTH|HTML_ESCAPE|HTML_GETPRINTEDSTR|HTML_POPPRINTINGSTR|HTML_PRINT|HTML_TAGSPLIT|HTML_TOPLAINTEXT|INITRAND|INPUT|INPUTMOUSEKEY|INPUTS|INRANGE|INRANGEARRAY|INRANGECARRAY|INVERTBIT|ISACTIVE|ISNUMERIC|ISSKIP|LIMIT|LINEISEMPTY|LOADCHARA|LOADDATA|LOADGLOBAL|LOADTEXT|LOG|LOG10|MATCH|MAX|MAXARRAY|MAXCARRAY|MESSKIP|MIN|MINARRAY|MINCARRAY|MONEYSTR|MOUSESKIP|MOUSEX|MOUSEY|NOSAMES|ONEINPUT|ONEINPUTS|OUTPUTLOG|PICKUPCHARA|POWER|PRINT_IMG|PRINT_RECT|PRINT_SPACE|PRINTCLENGTH|PRINTCPERLINE|RAND|RANDOMIZE|REDRAW|REPLACE|RESET_STAIN|RESETBGCOLOR|RESETCOLOR|RESETDATA|RESETGLOBAL|SAVECHARA|SAVEDATA|SAVEGLOBAL|SAVENOS|SAVETEXT|SETANIMETIMER|SETBGCOLOR|SETBGCOLORBYNAME|SETBIT|SETCOLOR|SETCOLORBYNAME|SETFONT|SIGN|SKIPDISP|SORTCHARA|SPLIT|SPRITEANIMEADDFRAME|SPRITEANIMECREATE|SPRITECREATE|SPRITECREATED|SPRITEDISPOSE|SPRITEGETCOLOR|SPRITEHEIGHT|SPRITEMOVE|SPRITEPOSX|SPRITEPOSY|SPRITESETPOS|SPRITEWIDTH|SQRT|STOPCALLTRAIN|STRCOUNT|STRFORM|SUMARRAY|SUMCARRAY|SWAP|SWAPCHARA|TIMES|TINPUT|TINPUTS|TOFULL|TOHALF|TOINT|TOLOWER|TONEINPUT|TONEINPUTS|TOOLTIP_SETCOLOR|TOOLTIP_SETDELAY|TOOLTIP_SETDURATION|TOSTR|TOUPPER|TWAIT|UNICODE|VARSET|VARSIZE|WAIT|WAITANYKEY)'
+
+# ---------------------------------------------
+
+contexts:
+  main:
+    - include: line_comment
+
+    - include: line_end
+
+    - include: declare
+
+    - include: control
+
+    - include: functions
+
+    - include: methods
+
+    - include: literals
+
+    - include: variables
+
+    - include: separator
+
+# ---------------------------------------------
+# 行注释
+# 以 ; 作为开头，直至行结尾的注释语句
+
+  line_comment:
+    - match: ';'
+      scope: punctuation.definition.comment.erabasic
+      push:
+        - meta_scope: comment.line.erabasic
+        - include: line_end
+
+# ---------------------------------------------
+# 声明 (函数, 变量, 标签)
+
+  declare:
+
+    # 以 @ 开头的函数定义
+    - match: '^\s*(@)\s*({{name_normal}})?'
+      captures:
+        1: storage.modifier.erabasic
+        2: entity.name.function.erabasic
+      push:
+        - include: line_method_group
+
+    # 以 # 开头的变量声明
+    - match: '^\s*#(\s*)'
+      scope: support.type.erabasic
+      # '#' 符号与 'DIM' 之间的空白符会导致Emuera报错
+      captures:
+        1: invalid.illegal.erabasic
+      push:
+        - match: '\b(?:{{kw_declare}}|{{kw_declare_type}}|{{kw_declare_type_DIM}})\b'
+          scope: support.type.erabasic
+        - include: line_code
+
+    # 以 $ 开头的GOTO标签
+    - match: '^\s*\$\s*'
+      scope: storage.modifier.erabasic
+      push:
+        - include: line_end
+        - match: '{{name_normal}}'
+          scope: entity.name.function.erabasic
+
+# ---------------------------------------------
+# 控制语句
+# 比如IF, ELSE, FOR, WHILE等
+
+  control:
+
+    # DATA 语句
+    - match: '^\s*\b{{kw_DATA}}\b'
+      scope: keyword.control.erabasic
+      push: line_func_plain
+
+    # DATAFORM 语句
+    - match: '^\s*\b{{kw_DATAFORM}}\b'
+      scope: keyword.control.erabasic
+      push: line_func_string_form
+
+    # TRYC 语句
+    - match: '^\s*\b{{kw_TRYC_PLAIN}}\b'
+      scope: keyword.control.erabasic
+      push: line_func_method
+
+    # TRYC_FORM 语句
+    - match: '^\s*\b{{kw_TRYC_FORM}}\b'
+      scope: keyword.control.erabasic
+      push: line_func_method_form
+
+    - match: '^\s*\b{{kw_control}}\b'
+      scope: keyword.control.erabasic
+
+# ---------------------------------------------
+# 方法
+
+  functions:
+
+    # CF_J_G, TRY_C_J_G
+    - match: '^\s*\b{{kw_func_CALL_PLAIN}}\b'
+      scope: variable.language.erabasic
+      push: line_func_method
+
+    # CF_J_G_FORM, TRY_C_J_G_FORM
+    - match: '^\s*\b{{kw_func_CALL_FORM}}\b'
+      scope: variable.language.erabasic
+      push: line_func_method_form
+
+    # RETURNFORM
+    # TODO: 判断传入的是变量名或是函数名以进行不同的着色
+    - match: '^\s*\b{{kw_RETURN_FORM}}\b'
+      scope: variable.language.erabasic
+      push:
+        - include: line_func_form
+        - include: line_code
+
+    # PLAIN
+    - match: '^\s*\b{{kw_func_plain}}\b'
+      scope: variable.language.erabasic
+      push: line_func_plain
+
+    # V
+    - match: '^\s*\b{{kw_func_v}}\b'
+      scope: variable.language.erabasic
+      push: line_func_v
+
+    # S
+    - match: '^\s*\b{{kw_func_s}}\b'
+      scope: variable.language.erabasic
+      push: line_func_s
+
+    # FORM
+    - match: '^\s*\b{{kw_func_form}}\b'
+      scope: variable.language.erabasic
+      push: line_func_string_form
+
+    # 系统内置方法
+    - match: '^\s*\b{{kw_function}}\b'
+      scope: variable.language.erabasic
+
+# ---------------------------------------------
+# 式中函数
+
+  methods:
+    - match: '({{name_normal}})\s*(\()'
+      captures:
+        1: variable.function.erabasic
+        2: punctuation.section.group.begin.erabasic
+      push: line_method_group
+
+  line_method_group:
+
+    - match: '\('
+      scope: punctuation.section.group.begin.erabasic
+      push: line_method_group
+
+    - match: '\)'
+      scope: punctuation.section.group.end.erabasic
+      pop: true
+
+    - include: line_code
+
+# ---------------------------------------------
+# 变量
+
+  variables:
+
+    # 局部通用变量
+    - match: '\b{{kw_local_var}}\b'
+      scope: variable.parameter.erabasic
+
+    # 全局通用变量
+    - match: '\b{{kw_global_var}}\b'
+      scope: variable.parameter.erabasic
+
+    - include: line_variable
+
+# ---------------------------------------------
+# 符号
+
+  separator:
+    - match: ','
+      scope: punctuation.separator.erabasic
+
+    # 运算符
+    # keyword.operator
+    # keyword.operator.assignment
+    # keyword.operator.arithmetic
+    # keyword.operator.bitwise
+    # keyword.operator.logical
+    - match: (?:\+|-|\*|/|\%|&|\||\\|\^|<|>|=|\?|!|#|:|@|\')
+      scope: keyword.operator.erabasic
+
+# ---------------------------------------------
+# 常数, 数字, 字符
+
+  literals:
+
+    # LEFT, RIGHT, CENTER 等常数关键字
+    - match: '{{kw_const}}'
+      scope: constant.language.erabasic
+
+    # 非法的escape符号写法
+    # - match: '''\'''
+    #   scope: invalid.illegal.lone-escape.erabasic
+
+    # 已经escape的字符
+    - match: (')({{escaped_char}})?(')
+      scope: constant.character.erabasic
+      captures:
+        2: constant.character.escape.erabasic
+
+    # char字符
+    - match: (').(')
+      scope: constant.character.erabasic
+
+    # 非法的char字符写法
+    # - match: (')[^']+(')
+    #   scope: invalid.illegal.not_a_char.erabasic
+
+    # 字符串
+    # 以 " 作为开头和结尾
+    - match: '"'
+      scope: punctuation.definition.string.begin.erabasic
+      push:
+        - meta_scope: string.quoted.double.erabasic
+        - match: '\\.'
+          scope: constant.character.escape.erabasic
+        - match: '"'
+          scope: punctuation.definition.string.end.erabasic
+          pop: true
+
+    # 16进制数字
+    - match: '{{hex_numeral}}'
+      scope: constant.numeric.integer.hexadecimal.erabasic
+      captures:
+        1: punctuation.definition.numeric.hexadecimal.erabasic
+
+    # 2进制数字
+    - match: '{{binary_numeral}}'
+      scope: constant.numeric.integer.binary.erabasic
+      captures:
+        1: punctuation.definition.numeric.binary.erabasic
+
+    # float浮点数
+    - match: '{{floating_point}}'
+      captures:
+        1: constant.numeric.float.decimal.erabasic
+        2: storage.type.numeric.erabasic
+
+    # 10进制数字
+    - match: '{{decimal_numeral}}'
+      captures:
+        1: constant.numeric.integer.decimal.erabasic
+        2: storage.type.numeric.erabasic
+
+# ---------------------------------------------
+# 通用代码着色
+
+  line_code:
+    - include: line_comment
+
+    - include: line_end
+
+    - include: methods
+
+    - include: literals
+
+    - include: variables
+
+    - include: separator
+
+# ---------------------------------------------
+# 函数代码着色
+
+  line_func_method:
+    - include: line_comment
+
+    - include: line_end
+
+    - include: methods
+
+    - match: '{{name_normal}}'
+      scope: variable.function.erabasic
+      pop: true
+
+    - include: literals
+
+    - include: variables
+
+    - include: separator
+
+# ---------------------------------------------
+# 其他变量
+
+  line_variable:
+    - match: '{{name_normal}}'
+      scope: variable.erabasic
+
+# ---------------------------------------------
+
+  line_func_plain:
+    - meta_scope: string.quoted.double.erabasic
+    - include: line_end
+
+  line_func_v:
+    - include: line_code
+
+  line_func_s:
+    - include: line_code
+
+  line_func_string_form:
+    - include: line_func_form
+
+    - match: '.'
+      scope: string.quoted.double.erabasic
+
+# ---------------------------------------------
+
+  line_func_method_form:
+    - include: line_func_form
+
+    - match: '\('
+      scope: punctuation.section.group.begin.erabasic
+      push: line_method_group
+
+    - match: '.'
+      scope: variable.function.erabasic
+
+# ---------------------------------------------
+
+  line_func_form:
+    - include: line_end
+
+    - match: '\\@'
+      scope: keyword.operator.erabasic
+      push:
+        - match: '\\@'
+          scope: keyword.operator.erabasic
+          pop: true
+        - include: line_code
+
+    - match: '\{'
+      scope: keyword.operator.erabasic
+      push:
+        - match: '\}'
+          scope: keyword.operator.erabasic
+          pop: true
+        - include: line_code
+
+    - match: '\%'
+      scope: keyword.operator.erabasic
+      push:
+        - match: '\%'
+          scope: keyword.operator.erabasic
+          pop: true
+        - include: line_code
+
+    - match: '\\.'
+      scope: constant.character.escape.erabasic
+
+# ---------------------------------------------
+# 行结束符出栈
+
+  line_end:
+    - match: '$'
+      pop: true
