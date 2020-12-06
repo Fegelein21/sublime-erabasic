@@ -1,10 +1,10 @@
 <snippet>
 	<tabTrigger>TRYCCALL_ENDCATCH</tabTrigger>
 	<scope>source.erabasic</scope>
-	<description>TRYCCALL(FORM)-CATCH-ENDCATCH</description>
+	<description>TRYCCALL-CATCH-ENDCATCH</description>
 
 	<content><![CDATA[
-TRYCCALL${1:FORM} ${2:FUNC_NAME}
+TRYCCALL ${1}
 	${0}
 CATCH
 	
