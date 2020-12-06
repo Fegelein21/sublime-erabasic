@@ -14,11 +14,10 @@ EraBasic syntax package for Sublime Text 3, The syntax and keywords refer to [Em
 
 ![](example_highlighting_2.png)
 
-#### Full Keyword & Auto Complete
-Full Keyword
+#### Full Keyword
 ![](example_full_keyword.gif)
 
-Auto Complete
+#### Auto Complete
 ![](example_auto_complete.gif)
 
 #### Function Jump
