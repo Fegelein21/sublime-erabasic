@@ -5,11 +5,9 @@
 插件包中的语法和关键字参照于 [Emuera Wiki](https://zh.osdn.net/projects/emuera/wiki/FrontPage)。
 
 ## 安装
+方式1：通过 [Package Control](https://packagecontrol.io/docs/usage) 安装 `EraBasic`
 
-* 通过 [Package Control](https://packagecontrol.io/docs/usage) 安装 `EraBasic`
-
-* 在此下载安装:
-
+方式2：在此下载安装:
 1. 把当前项目文件下载到本地
 2. 打开Sublime Text 3，点击菜单栏上的 `首选项 -> 浏览插件目录`
 3. 把下载的压缩包文件解压到插件目录中
@@ -20,6 +18,7 @@
 ![](example_highlighting.png)
 
 * 根据语法环境自适应着色
+
 ![](example_highlighting_2.png)
 
 
