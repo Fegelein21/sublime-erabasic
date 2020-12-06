@@ -16,17 +16,17 @@
 ## 使用
 
 #### 语法高亮
-[](example_highlighting.png)
+![](example_highlighting.png)
 
-[根据语法环境自适应着色](example_highlighting_2.png)
+![根据语法环境自适应着色](example_highlighting_2.png)
 
 #### 全关键字提示 & 自动补全
-[全关键字提示](example_full_keyword.gif)
+![全关键字提示](example_full_keyword.gif)
 
-[自动补全](example_auto_complete.gif)
+![自动补全](example_auto_complete.gif)
 
 #### 函数跳转
-[](example_function_jump.gif)
+![](example_function_jump.gif)
 
 * 注意: 跨文件跳转功能需要在项目环境下才能使用
 1.  点击菜单栏上的 '项目 -> 添加文件夹到项目'
