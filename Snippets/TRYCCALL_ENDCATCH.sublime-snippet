@@ -4,8 +4,8 @@
 	<description>TRYCCALL-CATCH-ENDCATCH</description>
 
 	<content><![CDATA[
-TRYCCALL ${1}
-	${0}
+TRYCCALL ${0}
+	
 CATCH
 	
 ENDCATCH

@@ -4,8 +4,8 @@
 	<description>SELECTCASE-CASE-CASEELSE-ENDSELECT</description>
 
 	<content><![CDATA[
-SELECTCASE ${1}
-CASE ${0}
+SELECTCASE ${0}
+CASE 
 	
 CASEELSE
 	

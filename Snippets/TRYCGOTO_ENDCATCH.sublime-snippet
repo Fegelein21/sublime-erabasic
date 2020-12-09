@@ -4,8 +4,8 @@
 	<description>TRYCGOTO-CATCH-ENDCATCH</description>
 
 	<content><![CDATA[
-TRYCGOTO ${1}
-	${0}
+TRYCGOTO ${0}
+	
 CATCH
 	
 ENDCATCH

@@ -4,8 +4,8 @@
 	<description>IF-ENDIF</description>
 
 	<content><![CDATA[
-IF ${1}
-	${0}
+IF ${0}
+	
 ENDIF
 ]]></content>
 </snippet>

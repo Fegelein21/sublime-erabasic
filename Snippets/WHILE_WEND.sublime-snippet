@@ -4,8 +4,8 @@
 	<description>WHILE-WEND</description>
 
 	<content><![CDATA[
-WHILE ${1}
-	${0}
+WHILE ${0}
+	
 WEND
 ]]></content>
 </snippet>

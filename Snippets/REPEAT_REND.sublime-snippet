@@ -4,8 +4,8 @@
 	<description>REPEAT-REND</description>
 
 	<content><![CDATA[
-REPEAT ${1}
-	${0}
+REPEAT ${0}
+	
 REND
 ]]></content>
 </snippet>

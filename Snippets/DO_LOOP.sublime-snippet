@@ -5,7 +5,7 @@
 
 	<content><![CDATA[
 DO
-	${0}
-LOOP ${1}
+	
+LOOP ${0}
 ]]></content>
 </snippet>

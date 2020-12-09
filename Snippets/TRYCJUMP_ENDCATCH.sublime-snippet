@@ -4,8 +4,8 @@
 	<description>TRYCJUMP-CATCH-ENDCATCH</description>
 
 	<content><![CDATA[
-TRYCJUMP ${1}
-	${0}
+TRYCJUMP ${0}
+	
 CATCH
 	
 ENDCATCH
