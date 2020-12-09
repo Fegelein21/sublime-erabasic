@@ -327,9 +327,18 @@ contexts:
   variables:
 
     # 通用字符变量
-    - match: ^\s*\b{{kw_var_string}}\b(?:\:.*)?\s*[^''']=
+    - match: ^\s*\b{{kw_var_string}}\b
       scope: variable.parameter.erabasic
-      push: line_func_string_form
+      push:
+        - match: '='
+          scope: keyword.operator.erabasic
+          push: line_func_string_form
+
+        - match: (')=
+          scope: keyword.operator.erabasic
+          push: line_code
+
+        - include: line_code
 
     # 通用数值变量
     - match: '\b{{kw_variable}}\b'
