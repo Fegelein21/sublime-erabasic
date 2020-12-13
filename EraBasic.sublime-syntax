@@ -334,7 +334,7 @@ contexts:
           scope: keyword.operator.erabasic
           push: line_func_string_form
 
-        - match: (')=
+        - match: (?:\+|(?:'))=
           scope: keyword.operator.erabasic
           push: line_code
 
