@@ -36,7 +36,7 @@ variables:
 # ---------------------------------------------
 # 常量, 变量
 
-  kw_const: '\b(?:CENTER|LEFT|RIGHT)\b'
+  kw_const: '\b(?:TRUE|FALSE|NULL|NULLS|BACK|CENTER|FORWARD|INVERT|LEFT|RIGHT)\b'
 
   kw___var__: '(?:__(?:FILE|FUNCTION|INT_MAX|INT_MIN|LINE)__)'
   kw_BASE: '(?:(?:DOWN|LOSE|MAX)?BASE)'

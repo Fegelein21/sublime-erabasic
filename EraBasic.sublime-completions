@@ -2,6 +2,14 @@
 	"scope": "source.erabasic",
 
 	"completions":[
+
+	// User Define Const
+	"INVERT",
+	"NULL",
+	"NULLS",
+	"FALSE",
+	"TRUE",
+
 	"__FILE__",
 	"__FUNCTION__",
 	"__INT_MAX__",
@@ -27,6 +35,7 @@
 	"ASSI",
 	"ASSIPLAY",
 	"AWAIT",
+	"BACK",
 	"BARSTR",
 	"BASE",
 	"BASENAME",
@@ -161,6 +170,7 @@
 	"FOR",
 	"FORCEKANA",
 	"FORCEWAIT",
+	"FORWARD",
 	"FUNC",
 	"FUNCTION",
 	"FUNCTIONS",
