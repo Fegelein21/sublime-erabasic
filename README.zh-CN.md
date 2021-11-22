@@ -15,7 +15,7 @@
 ## 使用
 
 ### 语法高亮
-![](example_highlighting.jpg)
+![](example_highlighting.png)
 
 
 ### 全关键字提示

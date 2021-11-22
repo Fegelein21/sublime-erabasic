@@ -10,7 +10,7 @@ Use [Package Control](https://packagecontrol.io/docs/usage) to install `EraBasic
 ## Instructions
 
 ### Syntax Highlighting
-![](example_highlighting.jpg)
+![](example_highlighting.png)
 
 
 ### Full Keyword
