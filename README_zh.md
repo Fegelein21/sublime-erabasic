@@ -1,8 +1,8 @@
 # Sublime-EraBasic
 
 ## 介绍
-这是一款在 [Sublime Text 3](http://www.sublimetext.cn/) 上为 EraBasic 语言提供语法高亮，全关键字提示，以及自动补全功能的语法插件包。
-插件包中的语法和关键字参照于 [Emuera Wiki](https://zh.osdn.net/projects/emuera/wiki/FrontPage)。
+这是一款在 [Sublime Text 3](http://www.sublimetext.com/) 上为 EraBasic 语言提供语法高亮，全关键字提示，以及自动补全功能的语法插件包。
+插件包中的语法和关键字参照于 [Emuera Wiki](https://osdn.net/projects/emuera/wiki/FrontPage)。
 
 ## 安装
 方式1：通过 [Package Control](https://packagecontrol.io/docs/usage) 安装 `EraBasic`
@@ -15,11 +15,7 @@
 ## 使用
 
 ### 语法高亮
-![](example_highlighting.png)
-
-* 根据语法环境自适应着色
-
-![](example_highlighting_2.png)
+![](example_highlighting.jpg)
 
 
 ### 全关键字提示
