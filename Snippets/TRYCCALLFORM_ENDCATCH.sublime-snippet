@@ -1,0 +1,13 @@
+<snippet>
+	<tabTrigger>TRYCCALLFORM_ENDCATCH</tabTrigger>
+	<scope>source.erabasic</scope>
+	<description>TRYCCALLFORM-CATCH-ENDCATCH</description>
+
+	<content><![CDATA[
+TRYCCALLFORM ${0}
+	
+CATCH
+	
+ENDCATCH
+]]></content>
+</snippet>

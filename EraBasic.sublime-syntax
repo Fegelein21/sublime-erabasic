@@ -36,7 +36,9 @@ variables:
 # ---------------------------------------------
 # 常量, 变量
 
-  kw_const: '\b(?:ABLUP|AFTERTRAIN|BACK|CENTER|FIRST|FORWARD|LEFT|RIGHT|SHOP|TITLE|TRAIN|TURNEND)\b'
+  kw_user_const: '(?:\s)'
+
+  kw_const: '(?:{{kw_user_const}}|ABLUP|AFTERTRAIN|BACK|CENTER|FIRST|FORWARD|LEFT|RIGHT|SHOP|TITLE|TRAIN|TURNEND)'
 
   kw___var__: '(?:__(?:FILE|FUNCTION|INT_MAX|INT_MIN|LINE)__)'
   kw_BASE: '(?:(?:DOWN|LOSE|MAX)?BASE)'
@@ -68,6 +70,76 @@ variables:
   kw_declare_type_DIM: '(?:CHARADATA|CONST|DYNAMIC|GLOBAL|REF|SAVEDATA|STATIC)'
 
 # ---------------------------------------------
+# 方法
+
+  kw_CSV: '(?:CSV(?:ABL|BASE|CALLNAME|CFLAG|CSTR|EQUIP|EXP|JUEL|MARK|MASTERNAME|NAME|NICKNAME|RELATION|TALENT))'
+
+  kw_PRINT: '(?:PRINT(?:K|D)?(?:L|W)?)'
+  kw_PRINTV: '(?:PRINTV(?:K|D)?(?:L|W)?)'
+  kw_PRINTS: '(?:PRINTS(?:K|D)?(?:L|W)?)'
+  kw_PRINTFORM: '(?:PRINT(?:FORM|FORMS)(?:K|D)?(?:L|W)?)'
+
+  kw_PRINTC: '(?:PRINT(?:C|LC)(?:K|D)?)'
+  kw_PRINTFORMC: '(?:PRINTFORM(?:C|LC)(?:K|D)?)'
+
+  kw_PRINTPLAIN: '(?:PRINTPLAIN)'
+  kw_PRINTPLAINFORM: '(?:PRINTPLAINFORM)'
+
+  kw_PRINTSINGLE: '(?:PRINTSINGLE(?:K|D)?)'
+  kw_PRINTSINGLEV: '(?:PRINTSINGLEV(?:K|D)?)'
+  kw_PRINTSINGLES: '(?:PRINTSINGLES(?:K|D)?)'
+  kw_PRINTSINGLEFORM: '(?:PRINTSINGLE(?:FORM|FORMS)(?:K|D)?)'
+
+  kw_PRINTBUTTON: '(?:PRINTBUTTON(?:C|LC)?)'
+
+  kw_PRINTDATA: '(?:PRINTDATA(?:K|D)?(?:L|W)?)'
+
+  kw_DEBUGPRINT: '(?:DEBUGPRINT(?:L)?)'
+  kw_DEBUGPRINTFORM: '(?:DEBUGPRINTFORM(?:L)?)'
+
+  kw_STRLEN: '(?:STRLEN(?:U)?)'
+  kw_STRLENS: '(?:STRLENS(?:U)?)'
+  kw_STRLENFORM: '(?:STRLENFORM(?:U)?)'
+
+  kw_STRFIND: '(?:STRFIND(?:U)?)'
+
+  kw_SUBSTRING: '(?:SUBSTRING(?:U)?)'
+
+  kw_SETCOLORBYNAME: '(?:SET(?:BG)?COLORBYNAME)'
+
+  kw_control_CSV: '(?:{{kw_CSV}})'
+
+  kw_control_PRINT: '(?:{{kw_PRINT}}|{{kw_PRINTC}}|{{kw_PRINTPLAIN}}|{{kw_PRINTSINGLE}})'
+  kw_control_PRINT_V: '(?:{{kw_PRINTV}}|{{kw_PRINTSINGLEV}})'
+  kw_control_PRINT_S: '(?:{{kw_PRINTS}}|{{kw_PRINTSINGLES}})'
+  kw_control_PRINT_FORM: '(?:{{kw_PRINTFORM}}|{{kw_PRINTFORMC}}|{{kw_PRINTPLAINFORM}}|{{kw_PRINTSINGLEFORM}})'
+
+  kw_control_PRINTBUTTON: '(?:{{kw_PRINTBUTTON}})'
+
+  kw_control_PRINTDATA: '(?:{{kw_PRINTDATA}}|STRDATA|ENDDATA)'
+  kw_control_DATA: '(?:{{kw_DATA}})'
+  kw_control_DATAFORM: '(?:{{kw_DATAFORM}})'
+  kw_control_DATALIST: '(?:DATALIST|ENDLIST)'
+
+  kw_control_DEBUGPRINT: '(?:{{kw_DEBUGPRINT}})'
+  kw_control_DEBUGPRINTFORM: '(?:{{kw_DEBUGPRINTFORM}})'
+
+  kw_control_STRLEN: '(?:{{kw_STRLEN}})'
+  kw_control_STRLENS: '(?:{{kw_STRLENS}})'
+  kw_control_STRLENFORM: '(?:{{kw_STRLENFORM}})'
+
+  kw_control_STRFIND: '(?:{{kw_STRFIND}})'
+
+  kw_control_SUBSTRING: '(?:{{kw_SUBSTRING}})'
+
+  kw_control_plain: '(?:{{kw_SETCOLORBYNAME}}|CUSTOMDRAWLINE)'
+  kw_control_v: '(?:\s)'
+  kw_control_s: '(?:{{kw_control_STRFIND}})'
+  kw_control_form: '(?:DRAWLINEFORM|ENCODETOUNI|REUSELASTLINE)'
+
+  kw_control_func: '(?:{{kw_control_CSV}}|{{kw_control_PRINT}}|{{kw_control_PRINT_V}}|{{kw_control_PRINT_S}}|{{kw_control_PRINT_FORM}}|{{kw_control_PRINTBUTTON}}|{{kw_control_PRINTDATA}}|{{kw_control_DATA}}|{{kw_control_DATAFORM}}|{{kw_control_DATALIST}}|{{kw_control_DEBUGPRINT}}|{{kw_control_DEBUGPRINTFORM}}|{{kw_control_STRLEN}}|{{kw_control_STRLENS}}|{{kw_control_STRLENFORM}}|{{kw_control_SUBSTRING}}|{{kw_control_plain}}|{{kw_control_v}}|{{kw_control_s}}|{{kw_control_form}})'
+
+# ---------------------------------------------
 # 控制语句
 
   kw_DATA: 'DATA'
@@ -94,69 +166,53 @@ variables:
   kw_TRYC_PLAIN: '(?:TRYC{{kw_C_J_G_PLAIN}})'
   kw_TRYC_FORM: '(?:TRYC{{kw_C_J_G_FORM}})'
 
-  kw_TRY_LIST: '(?:TRY{{kw_C_J_G_PLAIN}}LIST)'
-
-  kw_PRINTDATA: '(?:PRINTDATA(?:K|D)?(?:L|W)?)'
-
-  kw_control: '(?:{{kw_END}}|{{kw_IF}}|{{kw_PRINTDATA}}|{{kw_TRY_LIST}}|CASE|CASEELSE|CATCH|DATALIST|DO|ELSE|ELSEIF|FOR|FUNC|LOOP|NEXT|NOSKIP|REND|REPEAT|SELECTCASE|SIF|SKIPEND|SKIPSTART|STRDATA|WEND|WHILE)'
-
-# ---------------------------------------------
-# 方法
-
-  kw_CSV: '(?:CSV(?:ABL|BASE|CALLNAME|CFLAG|CSTR|EQUIP|EXP|JUEL|MARK|MASTERNAME|NAME|NICKNAME|RELATION|TALENT))'
-
-  kw_DEBUGPRINT: '(?:DEBUGPRINT(?:L)?)'
-  kw_DEBUGPRINTFORM: '(?:DEBUGPRINTFORM(?:L)?)'
-
   kw_TRY_PLAIN: '(?:TRY{{kw_C_J_G_PLAIN}})'
   kw_TRY_FORM: '(?:TRY{{kw_C_J_G_FORM}})'
 
-  kw_PRINT: '(?:PRINT(?:K|D)?(?:L|W)?)'
-  kw_PRINTV: '(?:PRINTV(?:K|D)?(?:L|W)?)'
-  kw_PRINTS: '(?:PRINTS(?:K|D)?(?:L|W)?)'
-  kw_PRINTFORM: '(?:PRINT(?:FORM|FORMS)(?:K|D)?(?:L|W)?)'
-
-  kw_PRINTC: '(?:PRINT(?:C|LC)(?:K|D)?)'
-  kw_PRINTFORMC: '(?:PRINTFORM(?:C|LC)(?:K|D)?)'
-
-  kw_PRINTPLAIN: '(?:PRINTPLAIN)'
-  kw_PRINTPLAINFORM: '(?:PRINTPLAINFORM)'
-
-  kw_PRINTSINGLE: '(?:PRINTSINGLE(?:K|D)?)'
-  kw_PRINTSINGLEV: '(?:PRINTSINGLEV(?:K|D)?)'
-  kw_PRINTSINGLES: '(?:PRINTSINGLES(?:K|D)?)'
-  kw_PRINTSINGLEFORM: '(?:PRINTSINGLE(?:FORM|FORMS)(?:K|D)?)'
-
-  kw_PRINT_PLAIN: '(?:{{kw_PRINT}}|{{kw_PRINTC}}|{{kw_PRINTPLAIN}}|{{kw_PRINTSINGLE}})'
-  kw_PRINT_V: '(?:{{kw_PRINTV}}|{{kw_PRINTSINGLEV}})'
-  kw_PRINT_S: '(?:{{kw_PRINTS}}|{{kw_PRINTSINGLES}})'
-  kw_PRINT_FORM: '(?:{{kw_PRINTFORM}}|{{kw_PRINTFORMC}}|{{kw_PRINTPLAINFORM}}|{{kw_PRINTSINGLEFORM}})'
-
-  kw_PRINTBUTTON: '(?:PRINTBUTTON(?:C|LC)?)'
-
-  kw_STRFIND: '(?:STRFIND(?:U)?)'
-
-  kw_STRLEN_PLAIN: '(?:STRLEN(?:U)?)'
-  kw_STRLENS: '(?:STRLENS(?:U)?)'
-  kw_STRLENFORM: '(?:STRLENFORM(?:U)?)'
-
-  kw_SUBSTRING: '(?:SUBSTRING(?:U)?)'
-
-  kw_SETCOLORBYNAME: '(?:SET(?:BG)?COLORBYNAME)'
-
-  kw_func_CALL_PLAIN: '(?:{{kw_CF_J_G_PLAIN}}|{{kw_TRY_PLAIN}})'
+  kw_func_CALL: '(?:{{kw_CF_J_G_PLAIN}}|{{kw_TRY_PLAIN}})'
   kw_func_CALL_FORM: '(?:{{kw_CF_J_G_FORM}}|{{kw_TRY_FORM}})'
 
-  kw_func_plain: '(?:{{kw_DEBUGPRINT}}|{{kw_PRINT_PLAIN}}|{{kw_SETCOLORBYNAME}}|{{kw_STRLEN_PLAIN}}|CUSTOMDRAWLINE)'
-  kw_func_v: '(?:{{kw_PRINT_V}})'
-  kw_func_s: '(?:{{kw_PRINT_S}}|{{kw_STRLENS}})'
-  kw_func_form: '(?:{{kw_DEBUGPRINTFORM}}|{{kw_PRINT_FORM}}|{{kw_STRLENFORM}}|DRAWLINEFORM|ENCODETOUNI|REUSELASTLINE|THROW)'
+  kw_TRY_LIST: '(?:TRY{{kw_C_J_G_PLAIN}}LIST)'
 
-  kw_RETURN_PLAIN: '(?:RETURN(?:F)?)'
+  kw_RETURN: '(?:RETURN(?:F)?)'
   kw_RETURN_FORM: '(?:RETURNFORM(?:F)?)'
-  kw_command: '(?:{{kw_RETURN_PLAIN}}|RESTART|BEGIN|CONTINUE|BREAK)'
 
-  kw_function: '(?:{{kw_command}}|{{kw_CSV}}|{{kw_PRINTBUTTON}}|{{kw_STRFIND}}|{{kw_SUBSTRING}}|{{kw_TRY_PLAIN}}|ABS|ADDCHARA|ADDCOPYCHARA|ADDDEFCHARA|ADDVOIDCHARA|ALIGNMENT|ALLSAMES|ARRAYCOPY|ARRAYMSORT|ARRAYREMOVE|ARRAYSHIFT|ARRAYSORT|ASSERT|AWAIT|BARSTR|BEGIN|CALLEVENT|CALLTRAIN|CBGCLEAR|CBGCLEARBUTTON|CBGREMOVEBMAP|CBGREMOVERANGE|CBGSETBMAPG|CBGSETBUTTONSPRITE|CBGSETG|CBGSETSPRITE|CBRT|CHARATU|CHKCHARADATA|CHKDATA|CHKFONT|CLEARBIT|CLEARLINE|CLEARTEXTBOX|CLIENTHEIGHT|CLIENTWIDTH|CMATCH|COLOR_FROMNAME|COLOR_FROMRGB|CONVERT|COPYCHARA|CUPCHECK|CURRENTALIGN|CURRENTREDRAW|CVARSET|DEBUGCLEAR|DELALLCHARA|DELCHARA|DELDATA|DOTRAIN|DRAWLINE|DUMPRAND|ESCAPE|EXISTCSV|EXPONENT|FIND_CHARADATA|FINDCHARA|FINDELEMENT|FINDLASTCHARA|FINDLASTELEMENT|FONTBOLD|FONTITALIC|FONTREGULAR|FONTSTYLE|FORCEKANA|FORCEWAIT|GCLEAR|GCREATE|GCREATED|GCREATEFROMFILE|GDISPOSE|GDRAWG|GDRAWGWITHMASK|GDRAWSPRITE|GETBGCOLOR|GETBIT|GETCHARA|GETCOLOR|GETCONFIG|GETCONFIGS|GETDEFBGCOLOR|GETDEFCOLOR|GETEXPLV|GETFOCUSCOLOR|GETFONT|GETKEY|GETKEYTRIGGERED|GETLINESTR|GETMILLISECOND|GETNUM|GETPALAMLV|GETSECOND|GETSPCHARA|GETSTYLE|GETTIME|GETTIMES|GFILLRECTANGLE|GGETCOLOR|GHEIGHT|GLOAD|GROUPMATCH|GSAVE|GSETBRUSH|GSETCOLOR|GSETFONT|GSETPEN|GWIDTH|HTML_ESCAPE|HTML_GETPRINTEDSTR|HTML_POPPRINTINGSTR|HTML_PRINT|HTML_TAGSPLIT|HTML_TOPLAINTEXT|INITRAND|INPUT|INPUTMOUSEKEY|INPUTS|INRANGE|INRANGEARRAY|INRANGECARRAY|INVERTBIT|ISACTIVE|ISNUMERIC|ISSKIP|LIMIT|LINEISEMPTY|LOADCHARA|LOADDATA|LOADGAME|LOADGLOBAL|LOADTEXT|LOG|LOG10|MATCH|MAX|MAXARRAY|MAXCARRAY|MESSKIP|MIN|MINARRAY|MINCARRAY|MONEYSTR|MOUSESKIP|MOUSEX|MOUSEY|NOSAMES|ONEINPUT|ONEINPUTS|OUTPUTLOG|PICKUPCHARA|POWER|PRINT_IMG|PRINT_RECT|PRINT_SPACE|PRINTCLENGTH|PRINTCPERLINE|RAND|RANDOMIZE|REDRAW|REPLACE|RESET_STAIN|RESETBGCOLOR|RESETCOLOR|RESETDATA|RESETGLOBAL|SAVECHARA|SAVEDATA|SAVEGAME|SAVEGLOBAL|SAVENOS|SAVETEXT|SETANIMETIMER|SETBGCOLOR|SETBGCOLORBYNAME|SETBIT|SETCOLOR|SETCOLORBYNAME|SETFONT|SIGN|SKIPDISP|SORTCHARA|SPLIT|SPRITEANIMEADDFRAME|SPRITEANIMECREATE|SPRITECREATE|SPRITECREATED|SPRITEDISPOSE|SPRITEGETCOLOR|SPRITEHEIGHT|SPRITEMOVE|SPRITEPOSX|SPRITEPOSY|SPRITESETPOS|SPRITEWIDTH|SQRT|STOPCALLTRAIN|STRCOUNT|STRFORM|SUMARRAY|SUMCARRAY|SWAP|SWAPCHARA|TIMES|TINPUT|TINPUTS|TOFULL|TOHALF|TOINT|TOLOWER|TONEINPUT|TONEINPUTS|TOOLTIP_SETCOLOR|TOOLTIP_SETDELAY|TOOLTIP_SETDURATION|TOSTR|TOUPPER|TWAIT|UNICODE|VARSET|VARSIZE|WAIT|WAITANYKEY)'
+# ---------------------------------------------
+
+  kw_control_CALL: '(?:{{kw_func_CALL}})'
+  kw_control_CALL_FORM: '(?:{{kw_func_CALL_FORM}})'
+
+  kw_control_RETURN: '(?:{{kw_RETURN}})'
+  kw_control_RETURN_FORM: '(?:{{kw_RETURN_FORM}})'
+  kw_control_RESTART: '(?:RESTART)'
+  kw_control_BEGIN: '(?:BEGIN)'
+
+  kw_control_SIF: '(?:SIF)'
+  kw_control_IF: '(?:{{kw_IF}}|ELSE|ELSEIF|ENDIF)'
+  kw_control_SELECTCASE: '(?:SELECTCASE|CASE|CASEELSE|ENDSELECT)'
+  kw_control_NOSKIP: '(?:NOSKIP|ENDNOSKIP)'
+  kw_control_SKIPSTART: '(?:SKIPSTART|SKIPEND)'
+
+  kw_control_FOR: '(?:FOR|NEXT)'
+  kw_control_WHILE: '(?:WHILE|WEND)'
+  kw_control_DO: '(?:DO|LOOP)'
+  kw_control_REPEAT: '(?:REPEAT|REND)'
+  kw_control_CONTINUE: '(?:CONTINUE)'
+  kw_control_BREAK: '(?:BREAK)'
+
+  kw_control_TRYC: '(?:{{kw_TRYC_PLAIN}})'
+  kw_control_TRYC_FORM: '(?:{{kw_TRYC_FORM}})'
+  kw_control_TRYC_ENDCATCH: '(?:CATCH|ENDCATCH)'
+
+  kw_control_TRY_LIST: '(?:{{kw_TRY_LIST}}|FUNC|ENDFUNC)'
+
+  kw_control_THROW: '(?:THROW)'
+
+  kw_control_flow: '(?:{{kw_control_CALL}}|{{kw_control_CALL_FORM}}|{{kw_control_RETURN}}|{{kw_control_RETURN_FORM}}|{{kw_control_RESTART}}|{{kw_control_BEGIN}}|{{kw_control_SIF}}|{{kw_control_IF}}|{{kw_control_SELECTCASE}}|{{kw_control_NOSKIP}}|{{kw_control_SKIPSTART}}|{{kw_control_FOR}}|{{kw_control_WHILE}}|{{kw_control_DO}}|{{kw_control_REPEAT}}|{{kw_control_CONTINUE}}|{{kw_control_BREAK}}|{{kw_control_TRYC}}|{{kw_control_TRYC_FORM}}|{{kw_control_TRYC_ENDCATCH}}|{{kw_control_TRY_LIST}}|{{kw_control_THROW}})'
+
+# ---------------------------------------------
+
+  kw_builtin_control: '(?:{{kw_control_func}}|{{kw_control_flow}}|ABS|ADDCHARA|ADDCOPYCHARA|ADDDEFCHARA|ADDVOIDCHARA|ALIGNMENT|ALLSAMES|ARRAYCOPY|ARRAYMSORT|ARRAYREMOVE|ARRAYSHIFT|ARRAYSORT|ASSERT|AWAIT|BARSTR|BEGIN|CALLEVENT|CALLTRAIN|CBGCLEAR|CBGCLEARBUTTON|CBGREMOVEBMAP|CBGREMOVERANGE|CBGSETBMAPG|CBGSETBUTTONSPRITE|CBGSETG|CBGSETSPRITE|CBRT|CHARATU|CHKCHARADATA|CHKDATA|CHKFONT|CLEARBIT|CLEARLINE|CLEARTEXTBOX|CLIENTHEIGHT|CLIENTWIDTH|CMATCH|COLOR_FROMNAME|COLOR_FROMRGB|CONVERT|COPYCHARA|CUPCHECK|CURRENTALIGN|CURRENTREDRAW|CVARSET|DEBUGCLEAR|DELALLCHARA|DELCHARA|DELDATA|DOTRAIN|DRAWLINE|DUMPRAND|ESCAPE|EXISTCSV|EXPONENT|FIND_CHARADATA|FINDCHARA|FINDELEMENT|FINDLASTCHARA|FINDLASTELEMENT|FONTBOLD|FONTITALIC|FONTREGULAR|FONTSTYLE|FORCEKANA|FORCEWAIT|GCLEAR|GCREATE|GCREATED|GCREATEFROMFILE|GDISPOSE|GDRAWG|GDRAWGWITHMASK|GDRAWSPRITE|GETBGCOLOR|GETBIT|GETCHARA|GETCOLOR|GETCONFIG|GETCONFIGS|GETDEFBGCOLOR|GETDEFCOLOR|GETEXPLV|GETFOCUSCOLOR|GETFONT|GETKEY|GETKEYTRIGGERED|GETLINESTR|GETMILLISECOND|GETNUM|GETPALAMLV|GETSECOND|GETSPCHARA|GETSTYLE|GETTIME|GETTIMES|GFILLRECTANGLE|GGETCOLOR|GHEIGHT|GLOAD|GROUPMATCH|GSAVE|GSETBRUSH|GSETCOLOR|GSETFONT|GSETPEN|GWIDTH|HTML_ESCAPE|HTML_GETPRINTEDSTR|HTML_POPPRINTINGSTR|HTML_PRINT|HTML_TAGSPLIT|HTML_TOPLAINTEXT|INITRAND|INPUT|INPUTMOUSEKEY|INPUTS|INRANGE|INRANGEARRAY|INRANGECARRAY|INVERTBIT|ISACTIVE|ISNUMERIC|ISSKIP|LIMIT|LINEISEMPTY|LOADCHARA|LOADDATA|LOADGAME|LOADGLOBAL|LOADTEXT|LOG|LOG10|MATCH|MAX|MAXARRAY|MAXCARRAY|MESSKIP|MIN|MINARRAY|MINCARRAY|MONEYSTR|MOUSESKIP|MOUSEX|MOUSEY|NOSAMES|ONEINPUT|ONEINPUTS|OUTPUTLOG|PICKUPCHARA|POWER|PRINT_IMG|PRINT_RECT|PRINT_SPACE|PRINTCLENGTH|PRINTCPERLINE|RAND|RANDOMIZE|REDRAW|REPLACE|RESET_STAIN|RESETBGCOLOR|RESETCOLOR|RESETDATA|RESETGLOBAL|SAVECHARA|SAVEDATA|SAVEGAME|SAVEGLOBAL|SAVENOS|SAVETEXT|SETANIMETIMER|SETBGCOLOR|SETBGCOLORBYNAME|SETBIT|SETCOLOR|SETCOLORBYNAME|SETFONT|SIGN|SKIPDISP|SORTCHARA|SPLIT|SPRITEANIMEADDFRAME|SPRITEANIMECREATE|SPRITECREATE|SPRITECREATED|SPRITEDISPOSE|SPRITEGETCOLOR|SPRITEHEIGHT|SPRITEMOVE|SPRITEPOSX|SPRITEPOSY|SPRITESETPOS|SPRITEWIDTH|SQRT|STOPCALLTRAIN|STRCOUNT|STRFORM|SUMARRAY|SUMCARRAY|SWAP|SWAPCHARA|TIMES|TINPUT|TINPUTS|TOFULL|TOHALF|TOINT|TOLOWER|TONEINPUT|TONEINPUTS|TOOLTIP_SETCOLOR|TOOLTIP_SETDELAY|TOOLTIP_SETDURATION|TOSTR|TOUPPER|TWAIT|UNICODE|VARSET|VARSIZE|WAIT|WAITANYKEY)'
 
 # ---------------------------------------------
 
@@ -168,9 +224,7 @@ contexts:
 
     - include: declare
 
-    - include: control
-
-    - include: functions
+    - include: builtin
 
     - include: methods
 
@@ -197,129 +251,217 @@ contexts:
   declare:
 
     # 以 @ 开头的函数定义
-    - match: '^\s*(@)\s*({{name_normal}})?'
+    - match: '^\s*(@)\s*'
       captures:
         1: storage.modifier.erabasic
-        2: entity.name.function.erabasic
-      push:
-        - include: line_method_group
+      push: method_declare
 
     # 以 # 开头的变量声明
-    - match: '^\s*#(\s*)'
-      scope: support.type.erabasic
-      # '#' 符号与 'DIM' 之间的空白符会导致Emuera报错
+    - match: '^\s*(#)\s*'
       captures:
-        1: invalid.illegal.erabasic
+        1: support.type.erabasic
       push:
-        - match: '\b(?:{{kw_declare}}|{{kw_declare_type}}|{{kw_declare_type_DIM}})\b'
+        - match: '(?i)\b(?:{{kw_declare}}|{{kw_declare_type}}|{{kw_declare_type_DIM}})\b'
           scope: support.type.erabasic
         - include: line_code
 
     # 以 $ 开头的GOTO标签
-    - match: '^\s*\$\s*'
-      scope: storage.modifier.erabasic
+    - match: '^\s*(\$)\s*'
+      captures:
+        1: storage.modifier.erabasic
       push:
         - include: line_end
         - match: '{{name_normal}}'
           scope: entity.name.function.erabasic
 
+  method_declare:
+    - include: line_end
+    - match: '(?={{name_normal}})'
+      push:
+        - include: line_end
+        - match: '{{name_normal}}'
+          scope: meta.function.erabasic entity.name.function.erabasic
+        - match: '(?=,)'
+          push: line_code
+        - include: line_method_arguments
+
 # ---------------------------------------------
 # 控制语句
 # 比如IF, ELSE, FOR, WHILE等
 
-  control:
+  builtin:
 
-    # DATA 语句
-    - match: '^\s*\b{{kw_DATA}}\b'
-      scope: keyword.control.erabasic
+    - match: '(?i)^\s*\b{{kw_control_PRINT}}\b'
+      scope: keyword.control.print.erabasic
       push: line_func_plain
 
-    # DATAFORM 语句
-    - match: '^\s*\b{{kw_DATAFORM}}\b'
-      scope: keyword.control.erabasic
-      push: line_func_string_form
+    - match: '(?i)^\s*\b{{kw_control_PRINT_V}}\b'
+      scope: keyword.control.print.v.erabasic
+      push: line_func_v
 
-    # TRYC 语句
-    - match: '^\s*\b{{kw_TRYC_PLAIN}}\b'
-      scope: keyword.control.erabasic
+    - match: '(?i)^\s*\b{{kw_control_PRINT_S}}\b'
+      scope: keyword.control.print.s.erabasic
+      push: line_func_s
+
+    - match: '(?i)^\s*\b{{kw_control_PRINT_FORM}}\b'
+      scope: keyword.control.print.form.erabasic
+      push: line_func_form_string
+
+    - match: '(?i)^\s*\b{{kw_control_PRINTBUTTON}}\b'
+      scope: keyword.control.print.button.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_PRINTDATA}}\b'
+      scope: keyword.control.printdata.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_DATA}}\b'
+      scope: keyword.control.printdata.data.erabasic
+      push: line_func_plain
+
+    - match: '(?i)^\s*\b{{kw_control_DATAFORM}}\b'
+      scope: keyword.control.printdata.data.form.erabasic
+      push: line_func_form_string
+
+    - match: '(?i)^\s*\b{{kw_control_DATALIST}}\b'
+      scope: keyword.control.printdata.datalist.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_DEBUGPRINT}}\b'
+      scope: keyword.control.debugprint.erabasic
+      push: line_func_plain
+
+    - match: '(?i)^\s*\b{{kw_control_DEBUGPRINTFORM}}\b'
+      scope: keyword.control.debugprint.form.erabasic
+      push: line_func_form_string
+
+    - match: '(?i)^\s*\b{{kw_control_STRLEN}}\b'
+      scope: keyword.control.strlen.erabasic
+      push: line_func_plain
+
+    - match: '(?i)^\s*\b{{kw_control_STRLENS}}\b'
+      scope: keyword.control.strlen.s.erabasic
+      push: line_func_s
+
+    - match: '(?i)^\s*\b{{kw_control_STRLENFORM}}\b'
+      scope: keyword.control.strlen.form.erabasic
+      push: line_func_form_string
+
+    - match: '(?i)^\s*\b{{kw_control_SUBSTRING}}\b'
+      scope: keyword.control.customdrawline.erabasic
+      push: line_func_s
+
+    - match: '(?i)^\s*\b{{kw_control_CALL}}\b'
+      scope: keyword.control.flow.call.erabasic
       push: line_func_method
 
-    # TRYC_FORM 语句
-    - match: '^\s*\b{{kw_TRYC_FORM}}\b'
-      scope: keyword.control.erabasic
-      push: line_func_method_form
+    - match: '(?i)^\s*\b{{kw_control_CALL_FORM}}\b'
+      scope: keyword.control.flow.call.erabasic
+      push: line_func_form_method
 
-    - match: '^\s*\b{{kw_control}}\b'
-      scope: keyword.control.erabasic
+    - match: '(?i)^\s*\b{{kw_control_RETURN}}\b'
+      scope: keyword.control.flow.return.erabasic
 
-# ---------------------------------------------
-# 方法
-
-  functions:
-
-    # CF_J_G, TRY_C_J_G
-    - match: '^\s*\b{{kw_func_CALL_PLAIN}}\b'
-      scope: variable.language.erabasic
-      push: line_func_method
-
-    # CF_J_G_FORM, TRY_C_J_G_FORM
-    - match: '^\s*\b{{kw_func_CALL_FORM}}\b'
-      scope: variable.language.erabasic
-      push: line_func_method_form
-
-    # RETURNFORM
-    # TODO: 判断传入的是变量名或是函数名以进行不同的着色
-    - match: '^\s*\b{{kw_RETURN_FORM}}\b'
-      scope: variable.language.erabasic
+    - match: '(?i)^\s*\b{{kw_control_RETURN_FORM}}\b'
+      scope: keyword.control.flow.return.erabasic
       push:
         - include: line_func_form
         - include: line_code
 
-    # PLAIN
-    - match: '^\s*\b{{kw_func_plain}}\b'
-      scope: variable.language.erabasic
+    - match: '(?i)^\s*\b{{kw_control_RESTART}}\b'
+      scope: keyword.control.flow.restart.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_BEGIN}}\b'
+      scope: keyword.control.flow.begin.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_SIF}}\b'
+      scope: keyword.control.flow.sif.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_IF}}\b'
+      scope: keyword.control.flow.conditional.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_SELECTCASE}}\b'
+      scope: keyword.control.flow.selectcase.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_NOSKIP}}\b'
+      scope: keyword.control.flow.noskip.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_SKIPSTART}}\b'
+      scope: keyword.control.flow.skipstart.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_CONTINUE}}\b'
+      scope: keyword.control.flow.continue.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_BREAK}}\b'
+      scope: keyword.control.flow.break.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_FOR}}\b'
+      scope: keyword.control.flow.for.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_WHILE}}\b'
+      scope: keyword.control.flow.while.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_DO}}\b'
+      scope: keyword.control.flow.do.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_REPEAT}}\b'
+      scope: keyword.control.flow.repeat.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_TRYC}}\b'
+      scope: keyword.control.flow.tryc.erabasic
+      push: line_func_method
+
+    - match: '(?i)^\s*\b{{kw_control_TRYC_FORM}}\b'
+      scope: keyword.control.flow.tryc.erabasic
+      push: line_func_form_method
+
+    - match: '(?i)^\s*\b{{kw_control_TRYC_ENDCATCH}}\b'
+      scope: keyword.control.flow.tryc.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_TRY_LIST}}\b'
+      scope: keyword.control.flow.trylist.erabasic
+
+    - match: '(?i)^\s*\b{{kw_control_THROW}}\b'
+      scope: keyword.control.flow.throw.erabasic
+      push: line_func_form_string
+
+    - match: '(?i)^\s*\b{{kw_control_plain}}\b'
+      scope: keyword.control.plain.erabasic
       push: line_func_plain
 
-    # V
-    - match: '^\s*\b{{kw_func_v}}\b'
-      scope: variable.language.erabasic
+    - match: '(?i)^\s*\b{{kw_control_v}}\b'
+      scope: keyword.control.v.erabasic
       push: line_func_v
 
-    # S
-    - match: '^\s*\b{{kw_func_s}}\b'
-      scope: variable.language.erabasic
+    - match: '(?i)^\s*\b{{kw_control_s}}\b'
+      scope: keyword.control.s.erabasic
       push: line_func_s
 
-    # FORM
-    - match: '^\s*\b{{kw_func_form}}\b'
-      scope: variable.language.erabasic
-      push: line_func_string_form
+    - match: '(?i)^\s*\b{{kw_control_form}}\b'
+      scope: keyword.control.form.erabasic
+      push: line_func_form_string
 
-    # 系统内置方法
-    - match: '^\s*\b{{kw_function}}\b'
-      scope: variable.language.erabasic
+    - match: '(?i)^\s*\b{{kw_builtin_control}}\b'
+      scope: keyword.control.erabasic
 
 # ---------------------------------------------
 # 式中函数
 
   methods:
-    - match: '({{name_normal}})\s*(\()'
-      captures:
-        1: variable.function.erabasic
-        2: punctuation.section.group.begin.erabasic
-      push: line_method_group
+    - match: '(?={{name_normal}}\()'
+      push:
+        - include: line_end
+        - match: '(?i)\b{{kw_builtin_control}}\b'
+          scope: meta.function-call.erabasic support.function.builtin.erabasic variable.function.erabasic
+        - match: '{{name_normal}}'
+          scope: meta.function-call.erabasic variable.function.erabasic
+        - include: line_method_arguments
 
-  line_method_group:
-
-    - match: '\('
-      scope: punctuation.section.group.begin.erabasic
-      push: line_method_group
-
-    - match: '\)'
-      scope: punctuation.section.group.end.erabasic
-      pop: true
-
-    - include: line_code
+  line_method_arguments:
+    - match: '(?=\()'
+      push:
+        - match: '\('
+          scope: punctuation.section.arguments.begin.erabasic
+        - match: '\)'
+          scope: punctuation.section.arguments.end.erabasic
+        - include: line_code
 
 # ---------------------------------------------
 # 变量
@@ -327,21 +469,20 @@ contexts:
   variables:
 
     # 通用字符变量
-    - match: ^\s*\b{{kw_var_string}}\b
+    - match: '(?i)^\s*(?=\b{{kw_var_string}}\b)'
       scope: variable.parameter.erabasic
       push:
+        - match: '(?i)\b{{kw_var_string}}\b'
+          scope: variable.parameter.erabasic
         - match: '='
           scope: keyword.operator.erabasic
-          push: line_func_string_form
-
+          push: line_func_form_string
         - match: (?:\+|(?:'))=
           scope: keyword.operator.erabasic
-          push: line_code
-
         - include: line_code
 
     # 通用数值变量
-    - match: '\b{{kw_variable}}\b'
+    - match: '(?i)\b{{kw_variable}}\b'
       scope: variable.parameter.erabasic
 
     - include: line_variable
@@ -370,7 +511,7 @@ contexts:
     - include: strings
 
     # LEFT, RIGHT, CENTER 等常数关键字
-    - match: '{{kw_const}}'
+    - match: '(?i)\b{{kw_const}}\b'
       scope: constant.language.erabasic
 
     # 非法的escape符号写法
@@ -430,7 +571,7 @@ contexts:
         - match: '"'
           scope: punctuation.definition.string.end.erabasic
           pop: true
-        - include: line_func_string_form
+        - include: line_func_form_string
 
     # 字符串
     # 以 " 作为开头和结尾
@@ -461,24 +602,18 @@ contexts:
     - include: separator
 
 # ---------------------------------------------
-# 函数代码着色
+# 由 CALL 方法所调用的函数
 
   line_func_method:
-    - include: line_comment
-
     - include: line_end
-
-    - include: methods
-
-    - match: '{{name_normal}}'
-      scope: variable.function.erabasic
-      pop: true
-
-    - include: literals
-
-    - include: variables
-
-    - include: separator
+    - match: '(?={{name_normal}})'
+      push:
+        - include: line_end
+        - match: '{{name_normal}}'
+          scope: meta.function-call.erabasic variable.function.erabasic
+        - match: '(?=,)'
+          push: line_code
+        - include: line_method_arguments
 
 # ---------------------------------------------
 # 其他变量
@@ -499,7 +634,7 @@ contexts:
   line_func_s:
     - include: line_code
 
-  line_func_string_form:
+  line_func_form_string:
     - include: line_func_form
 
     - match: '.'
@@ -507,14 +642,12 @@ contexts:
 
 # ---------------------------------------------
 
-  line_func_method_form:
+  line_func_form_method:
     - include: line_func_form
 
-    - match: '\('
-      scope: punctuation.section.group.begin.erabasic
-      push: line_method_group
+    - include: line_method_arguments
 
-    - match: '.'
+    - match: '\S'
       scope: variable.function.erabasic
 
 # ---------------------------------------------
