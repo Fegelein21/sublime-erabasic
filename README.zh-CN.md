@@ -1,5 +1,6 @@
 # Sublime-EraBasic
 这是一款在 [Sublime Text 3](http://www.sublimetext.com/) 上为 EraBasic 语言提供语法高亮、全关键字提示、自动补全、跳转定义功能的语法插件包。
+
 插件包中的语法和关键字参照于 [Emuera Wiki](https://osdn.net/projects/emuera/wiki/FrontPage)。
 
 ## 安装
@@ -46,7 +47,7 @@
 1. 前往 [Exuberant Ctags](http://ctags.sourceforge.net/) 官网下载Ctags（下载按钮位于官网左侧栏的`Download - Releases`）
 2. 打开下载到的 `ctags58.zip` 压缩包，把压缩包中的 `ctags.exe` 程序解压到 `C:\Windows\System32` 中
 4. 打开Sublime的插件目录，找到 `EraBasic` 文件夹
-5. 找到文件夹中的`.ctags` 文件，将其复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 中即可
+5. 找到文件夹中的 `.ctags` 文件，将其复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 中即可
 
 ### 使用
 1. 在左侧的文件窗口中 `鼠标右键` 点选最顶层的ERB文件夹，点选 `Ctags: Rebuild Tags`，等待Ctags插件提取关键字
