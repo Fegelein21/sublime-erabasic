@@ -11,11 +11,53 @@
 						"caption": "EraBasic",
 						"children": [
 							{
-								"command": "edit_settings",
-								"base_file": "${packages}/EraBasic/EraBasic.sublime-settings",
-								"default": "// These settings override both User and Default settings for the EraBasic syntax{\n\t$0\n}\n",
-								"caption": "Settings"
-							}
+								"command": "open_file",
+								"args":
+								{
+									"file": "${packages}/EraBasic/EraBasic.sublime-settings"
+								},
+								"caption": "Settings - Default"
+							},
+							{
+								"command": "open_file",
+								"args":
+								{
+									"file": "${packages}/User/EraBasic.sublime-settings"
+								},
+								"caption": "Settings - User"
+							},
+                            { "caption": "-" },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/EraBasic/Default.sublime-mousemap"
+                                },
+                                "caption": "Mouse Bindings – Default"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (Windows).sublime-mousemap",
+                                    "platform": "Windows"
+                                },
+                                "caption": "Mouse Bindings – User"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (OSX).sublime-mousemap",
+                                    "platform": "OSX"
+                                },
+                                "caption": "Mouse Bindings – User"
+                            },
+                            {
+                                "command": "open_file",
+                                "args": {
+                                    "file": "${packages}/User/Default (Linux).sublime-mousemap",
+                                    "platform": "Linux"
+                                },
+                                "caption": "Mouse Bindings – User"
+                            }
 						]
 					}
 				]
