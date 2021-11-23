@@ -32,7 +32,15 @@ Use `Package Control: Install Package` command to subscribe `EraBasic`
 
 
 ### Preparation
-1. Download [Exuberant Ctags](http://ctags.sourceforge.net/) from the official website
-2. Open the `ctags58.zip` package and unzip the `ctags.exe` file to `C:\Windows\System32`
-4. Open the plugin directory of Sublime, and find the `EraBasic` folder
-5. Find the `.ctags` file in the folder, copy or move it to `C:\Users\(your computer name)`
+- Download [Exuberant Ctags](http://ctags.sourceforge.net/) from the official website
+- Open the `ctags58.zip` package and unzip the `ctags.exe` file to `C:\Windows\System32`
+- 
+- For the user who get this package by subscription:
+- Open Sublime, click `Preferences -> Browse Packages` on the Menu
+- Move up to `Sublime Text 3` folder in the open file window, then enter the `Installed Packages` folder
+- Find the `EraBasic.sublime-package` file and open it as zip file
+- Find the `.Ctags` file in the package and extract it to `C:\Users\(your computer name)`
+- 
+- For the user who get this package by manually:
+- Open the package directory of Sublime, and find the `EraBasic` folder
+- Find the `.ctags` file in the folder, copy or move it to `C:\Users\(your computer name)`
