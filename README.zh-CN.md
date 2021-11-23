@@ -8,7 +8,7 @@
 
 方式2：在此下载安装:
 1. 把当前项目文件下载到本地
-2. 打开Sublime Text 3，点击菜单栏上的 `首选项 -> 浏览插件目录`
+2. 打开Sublime，点选菜单栏上的 `首选项 -> 浏览插件目录`
 3. 把下载的压缩包中的文件夹解压到插件目录中，重命名文件夹为 `EraBasic`
 
 ## 使用
@@ -44,10 +44,17 @@
 
 
 ### 准备工作
-1. 前往 [Exuberant Ctags](http://ctags.sourceforge.net/) 官网下载Ctags（下载按钮位于官网左侧栏的`Download - Releases`）
-2. 打开下载到的 `ctags58.zip` 压缩包，把压缩包中的 `ctags.exe` 程序解压到 `C:\Windows\System32` 中
-4. 打开Sublime的插件目录，找到 `EraBasic` 文件夹
-5. 找到文件夹中的 `.ctags` 文件，将其复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 中即可
+- 前往 [Exuberant Ctags](http://ctags.sourceforge.net/) 官网下载Ctags（下载按钮位于官网左侧栏的`Download - Releases`）
+- 打开下载到的 `ctags58.zip` 压缩包，把压缩包中的 `ctags.exe` 程序解压到 `C:\Windows\System32` 中
+- 
+- 对于通过订阅获取插件的用户：
+- 打开Sublime，点选菜单栏上的 `首选项 -> 浏览插件目录`，在打开的文件窗口中上移到 `Sublime Text 3` 文件夹
+- 然后进入 `Installed Packages` 文件夹，找到 `EraBasic.sublime-package` 文件并以压缩包方式打开
+- 找到压缩包中的 `.ctags` 文件，将其解压到 `C:\Users(用户)\(你的计算机用户名)` 中即可
+- 
+- 对于手动下载安装插件的用户：
+- 打开Sublime的插件目录，找到EraBasic插件的文件夹
+- 找到文件夹中的 `.ctags` 文件，将其复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 中即可
 
 ### 使用
 1. 在左侧的文件窗口中 `鼠标右键` 点选最顶层的ERB文件夹，点选 `Ctags: Rebuild Tags`，等待Ctags插件提取关键字
