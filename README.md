@@ -26,7 +26,7 @@ Use `Package Control: Install Package` command to subscribe `EraBasic`
 
 ## Ctags Expansion
 
-**Before using it, please ensure your Sublime is in the Project-Environment, and subscribe 'CTags' Package in Sublime**
+**Before using it, please ensure your Sublime is in the Project-Environment, and subscribe `CTags` Package in Sublime**
 
 ![ctags](https://z3.ax1x.com/2021/11/23/opIb8O.gif)
 
