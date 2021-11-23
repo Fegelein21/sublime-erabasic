@@ -9,26 +9,26 @@ Use `Package Control: Install Package` command to subscribe `EraBasic`
 ## Instructions
 
 ### Syntax Highlighting
-![](example_highlighting.png)
+![highlighting](https://z3.ax1x.com/2021/11/23/opIT56.png)
 
 
 ### Full Keyword
-![](example_full_keyword.gif)
+![full_keyword](https://z3.ax1x.com/2021/11/23/opIHPK.gif)
 
 
 ### Auto Complete
-![](example_auto_complete.gif)
+![auto_complete](https://z3.ax1x.com/2020/12/07/DxT4iQ.gif)
 
 
 ### Goto Definition
-![](example_goto_definition.gif)
+![goto_definition](https://z3.ax1x.com/2021/11/23/opIq2D.gif)
 
 
 ## Ctags Expansion
 
 **Before using it, please ensure your Sublime is in the Project-Environment, and subscribe 'CTags' Package in Sublime**
 
-![](example_ctags.gif)
+![ctags](https://z3.ax1x.com/2021/11/23/opIb8O.gif)
 
 
 ### Preparation
