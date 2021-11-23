@@ -1,0 +1,24 @@
+[
+	{
+		"id": "preferences",
+		"children": [
+			{
+				"id": "package-settings",
+				"children": [
+					{
+						"caption": "EraBasic",
+						"children": [
+							{
+								"command": "open_file", "args":
+								{
+									"file": "${packages}/EraBasic/EraBasic.sublime-settings"
+								},
+								"caption": "Settings"
+							}
+						]
+					}
+				]
+			}
+		]
+	}
+]

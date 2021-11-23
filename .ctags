@@ -1,0 +1,9 @@
+
+--langdef=EraBasic
+--langmap=EraBasic:.erb
+--regex-EraBasic=/^@\s*([^;[:space:],(]*)/\1/F,functions/
+
+--langdef=EraBasic_ERH
+--langmap=EraBasic_ERH:.erh
+--regex-EraBasic_ERH=/^\s*#DIM(S)?\s+((CONST|CHARADATA|SAVEDATA|GLOBAL)\s+)*([^;[:space:],=]*)/\4/G,global_variables/i
+--regex-EraBasic_ERH=/^\s*#DEFINE\s+([^;[:space:]]*)/\1/M,marcos/i
