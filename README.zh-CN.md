@@ -14,19 +14,19 @@
 ## 使用
 
 ### 语法高亮
-![](example_highlighting.png)
+![highlighting](https://z3.ax1x.com/2021/11/23/opIT56.png)
 
 
 ### 全关键字提示
-![](example_full_keyword.gif)
+![full_keyword](https://z3.ax1x.com/2021/11/23/opIHPK.gif)
 
 
 ### 自动补全
-![](example_auto_complete.gif)
+![auto_complete](https://z3.ax1x.com/2020/12/07/DxT4iQ.gif)
 
 
 ### 跳转到定义
-![](example_goto_definition.gif)
+![goto_definition](https://z3.ax1x.com/2021/11/23/opIq2D.gif)
 
 
 **注意，跨文件跳转定义需要在项目环境下才能生效:**
@@ -40,7 +40,7 @@
 
 **使用前请确保您的Sublime处于项目环境，并在Sublime中订阅 `CTags` 插件**
 
-![](example_ctags.gif)
+![ctags](https://z3.ax1x.com/2021/11/23/opIb8O.gif)
 
 
 ### 准备工作
