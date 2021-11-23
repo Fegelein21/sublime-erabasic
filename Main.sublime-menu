@@ -1,18 +1,19 @@
 [
 	{
+        "caption": "Preferences",
 		"id": "preferences",
 		"children": [
 			{
+                "caption": "Package Settings",
 				"id": "package-settings",
 				"children": [
 					{
 						"caption": "EraBasic",
 						"children": [
 							{
-								"command": "open_file", "args":
-								{
-									"file": "${packages}/EraBasic/EraBasic.sublime-settings"
-								},
+								"command": "edit_settings",
+								"base_file": "${packages}/EraBasic/EraBasic.sublime-settings",
+								"default": "// These settings override both User and Default settings for the EraBasic syntax{\n\t$0\n}\n",
 								"caption": "Settings"
 							}
 						]
