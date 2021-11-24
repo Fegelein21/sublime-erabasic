@@ -13,13 +13,18 @@
 	],
 	"default_encoding": "UTF-8",
 	"tab_completion": false,
+	"extensions":
+	[
+		"ERB",
+		"ERH"
+	],
 
 	// 在自动完成输入框中显示函数的参数
 	// 当 func_show_param_count 启用时, 该功能不生效
 	"erabasic_func_show_param": false,
 
 	// 在自动完成输入框中显示函数的参数数量
-	// 显示为 "2-A", 意为 2 Argument
+	// 两个参数显示为 2-A, 意为 2 Argument
 	// 当 func_show_param 启用时, 该功能不生效
 	"erabasic_func_show_param_count": true,
 
@@ -31,19 +36,19 @@
 	"erabasic_func_auto_add_bracket": true,
 
 	// 在自动完成输入框中显示全局常量、变量、数组的数据类型
-	// #DIM 显示为 "I", #DIMS 显示为 "S"
+	// #DIM 显示为 I, #DIMS 显示为 S
 	"erabasic_global_show_data_type": true,
 
 	// 在自动完成输入框中显示全局数组的声明类型(如 CHARADATA SAVEDATA)
-	// CHARADATA 显示为 "_C", SAVEDATA 显示为 "_S", 多个声明显示为 "_C_S"
-	"erabasic_global_show_declare": true,
+	// CHARADATA 显示为 _C, SAVEDATA 显示为 _S, 多个声明显示为 _C_S
+	"erabasic_global_show_declare": false,
 
 	// 在自动完成输入框中显示全局常量、变量的预设值
-	// #DIM 显示为 "= 100", #DIMS 显示为 "= "100"", 无预设值时不显示
+	// #DIM 显示为 = 100, #DIMS 显示为 = "100", 无预设值时不显示
 	"erabasic_global_show_defvalue": true,
 
 	// 在自动完成输入框中显示全局数组的维数
-	// 显示为 "2-D", 意为 2 Dimension
+	// 二维显示为 2-D, 意为 2 Dimension
 	"erabasic_global_show_dimension": true,
 
 	// 输入全局数组时自动根据声明和维数添加冒号

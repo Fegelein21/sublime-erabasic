@@ -135,7 +135,7 @@ def func_process(matched):
 
     if Global.func_auto_add_bracket:
         if not Global.func_auto_add_param and contents[0] != 0:
-            strings += '(${0})'
+            strings += '(${1})${0}'
 
     if Global.func_show_param_count and not Global.func_show_param:
         trigger_R = '%s-A' % len(contents[1])
@@ -171,10 +171,18 @@ def func_add_param(matched, contents, format_arg):
     for index,string in enumerate(contents[1]):
         if len(strings) > 0:
             strings += ', '
-        strings += '${%s:%s}' % (str(index + 1), string) if format_arg else string
+        if format_arg:
+            if contents[0] == 1:
+                strings += '${%s:%s}' % (str(index + 1), string)
+            else:
+                strings += '${%s:%s}' % (str(index + 1 if index < len(contents[1]) - 1 else 0), string)
+        else:
+            strings += string
 
     if contents[0] == 1:
         strings = '%s(%s)' % (matched[0], strings)
+        if format_arg:
+            strings += '${0}'
     else:
         strings = '%s, %s' % (matched[0], strings)
 
@@ -233,7 +241,7 @@ def global_process(matched):
             if declares.find('_C') != -1:
                 colons += 1
             for i in range(0, colons):
-                strings += ':${%s}' % str(i + 1)
+                strings += ':${%s}' % str(i + 1 if i < colons - 1 else 0)
 
     return (trigger, strings)
 
