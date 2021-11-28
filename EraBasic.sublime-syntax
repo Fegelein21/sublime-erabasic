@@ -447,20 +447,20 @@ contexts:
   methods:
     - match: '(?={{name_normal}}\()'
       push:
-        - include: line_end
-        - match: '(?i)\b{{kw_builtin_control}}\b'
+        - match: '(?i)\b{{kw_builtin_control}}\b(?=\()'
           scope: meta.function-call.erabasic support.function.builtin.erabasic variable.function.erabasic
-        - match: '{{name_normal}}'
+        - match: '{{name_normal}}(?=\()'
           scope: meta.function-call.erabasic variable.function.erabasic
         - include: line_method_arguments
+        - include: no_match
 
   line_method_arguments:
-    - match: '(?=\()'
+    - match: '\('
+      scope: punctuation.section.arguments.begin.erabasic
       push:
-        - match: '\('
-          scope: punctuation.section.arguments.begin.erabasic
         - match: '\)'
           scope: punctuation.section.arguments.end.erabasic
+          pop: true
         - include: line_code
 
 # ---------------------------------------------
@@ -687,4 +687,8 @@ contexts:
 
   line_end:
     - match: '$'
+      pop: true
+
+  no_match:
+    - match: ''
       pop: true
