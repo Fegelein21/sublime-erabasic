@@ -479,6 +479,7 @@ contexts:
           push: line_func_form_string
         - match: (?:\+|(?:'))=
           scope: keyword.operator.erabasic
+          push: line_code
         - include: line_code
 
     # 通用数值变量
