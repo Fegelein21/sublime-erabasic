@@ -4,14 +4,7 @@
     "auto_complete_with_fields": true,
     "auto_complete_cycle": true,
 	"auto_match_enabled": true,
-	"auto_complete_triggers":
-	[
-		{
-			"selector": "source.erabasic",
-			"characters": "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-		}
-	],
-	"default_encoding": "UTF-8",
+	"default_encoding": "UTF-8-BOM",
 	"tab_completion": false,
 	"extensions":
 	[
@@ -45,7 +38,7 @@
 
 	// 在自动完成输入框中显示全局常量、变量的预设值
 	// #DIM 显示为 = 100, #DIMS 显示为 = "100", 无预设值时不显示
-	"erabasic_global_show_defvalue": true,
+	"erabasic_global_show_defvalue": false,
 
 	// 在自动完成输入框中显示全局数组的维数
 	// 二维显示为 2-D, 意为 2 Dimension

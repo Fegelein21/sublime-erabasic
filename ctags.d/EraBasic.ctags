@@ -1,0 +1,12 @@
+
+--langdef=EraBasic
+--map-EraBasic=.erb
+--kinddef-EraBasic=f,function,functions
+--regex-EraBasic=/^@\s*([^;[:space:],(]*)/\1/f/i
+
+--langdef=EraBasic_ERH
+--map-EraBasic_ERH=.erh
+--kinddef-EraBasic_ERH=g,globalVariable,globalVariables
+--kinddef-EraBasic_ERH=m,marco,marcos
+--regex-EraBasic_ERH=/^\s*#DIM(S)?\s+((CONST|CHARADATA|SAVEDATA|GLOBAL)\s+)*([^;[:space:],=]*)/\4/g/i
+--regex-EraBasic_ERH=/^\s*#DEFINE\s+([^;[:space:]]*)/\1/m/i

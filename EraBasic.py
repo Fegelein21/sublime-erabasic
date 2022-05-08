@@ -107,9 +107,9 @@ def regen_all_keyword(view):
 
         matched = rows.replace('\n', '').split('\t')
         contents = None
-        if matched[3] == 'F':
+        if matched[3] == 'f':
             contents = func_process(matched)
-        elif matched[3] == 'G':
+        elif matched[3] == 'g':
             contents = global_process(matched)
         else:
             trigger = '%s\t%s' % (matched[0], matched[3])
