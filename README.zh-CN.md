@@ -45,8 +45,8 @@
 - 打开Sublime，点选菜单栏上的 `首选项 -> 浏览插件目录`，在打开的文件窗口中上移到 `Sublime Text 3` 目录并进入 `Installed Packages` 文件夹。
 - 以压缩包方式打开 `EraBasic.sublime-package` 文件，把压缩包中的 `ctags.d` 文件夹解压到 `C:\Users(用户)\(你的计算机用户名)` 目录下即可。
 
-#### 对于手动下载安装插件的用户：
-- 打开Sublime的插件目录，把EraBasic插件文件夹中的 `ctags.d` 文件夹复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 中即可。
+#### 对于手动安装插件的用户：
+- 打开Sublime的插件目录，把EraBasic插件文件夹中的 `ctags.d` 文件夹复制或移动到 `C:\Users(用户)\(你的计算机用户名)` 目录下即可。
 
 ### 使用
 1. 在左侧的文件窗口中 `鼠标右键` 点选最顶层的ERB文件夹，点选 `Ctags: Rebuild Tags`，等待Ctags插件提取关键字。
