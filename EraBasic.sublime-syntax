@@ -5,8 +5,8 @@
 name: EraBasic
 
 file_extensions:
-  - erb
-  - erh
+  - ERB
+  - ERH
 
 scope: source.erabasic
 
