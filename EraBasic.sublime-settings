@@ -4,7 +4,7 @@
     "auto_complete_with_fields": true,
     "auto_complete_cycle": true,
 	"auto_match_enabled": true,
-	"default_encoding": "UTF-8-BOM",
+	"default_encoding": "UTF-8 with BOM",
 	"tab_completion": false,
 	"extensions":
 	[
